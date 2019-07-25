@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.8">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Справочник Упаковки номенклатуры</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="МояКоманднаяПанель" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Моя командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Моя командная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="МояКоманднаяПанельРасширеннаяПодсказка" id="30"/>
+			<ChildItems>
+				<Button name="ДобавитьЭлемент" id="49">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<Width>10</Width>
+					<CommandName>Form.Command.ДобавитьЭлемент</CommandName>
+					<ExtendedTooltip name="ДобавитьЭлементРасширеннаяПодсказка" id="50"/>
+				</Button>
+				<Button name="УдалитьПомеченные" id="51">
+					<Type>UsualButton</Type>
+					<Width>16</Width>
+					<CommandName>Form.Command.УдалитьПомеченные</CommandName>
+					<ExtendedTooltip name="УдалитьПомеченныеРасширеннаяПодсказка" id="52"/>
+				</Button>
+				<Button name="УпаковкиНоменклатурыУдалениеПометитьСнять" id="57">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<CommandName>Form.Command.УдалениеПометитьСнять</CommandName>
+					<Picture>
+						<xr:Ref>CommonPicture.ПользовательскийМакетУдалить</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+					<ExtendedTooltip name="УпаковкиНоменклатурыУдалениеПометитьСнятьРасширеннаяПодсказка" id="58"/>
+				</Button>
+				<Button name="СохранитьСправочник" id="37">
+					<Type>Hyperlink</Type>
+					<Visible>false</Visible>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.СохранитьСправочник</CommandName>
+					<Font faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+					<ExtendedTooltip name="СохранитьСправочникРасширеннаяПодсказка" id="38"/>
+				</Button>
+				<Button name="УдалитьИзХранилища" id="61">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<CommandName>Form.Command.УдалитьИзХранилища</CommandName>
+					<ExtendedTooltip name="УдалитьИзХранилищаРасширеннаяПодсказка" id="62"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<CommandBar name="КоманднаяПанельВыбора" id="63">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель выбора</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель выбора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="КоманднаяПанельВыбораРасширеннаяПодсказка" id="64"/>
+			<ChildItems>
+				<Button name="Выбрать" id="65">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Выбрать</CommandName>
+					<ExtendedTooltip name="ВыбратьРасширеннаяПодсказка" id="66"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+		<Table name="УпаковкиНоменклатуры" id="1">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.УпаковкиНоменклатуры</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="УпаковкиНоменклатурыКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="УпаковкиНоменклатурыКонтекстноеМенюДобавитьЭлемент" id="59">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Command.ДобавитьЭлемент</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Добавить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="УпаковкиНоменклатурыКонтекстноеМенюДобавитьЭлементРасширеннаяПодсказка" id="60"/>
+					</Button>
+					<Button name="УпаковкиНоменклатурыКонтекстноеМенюУдалениеПометитьСнять" id="55">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.УдалениеПометитьСнять</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.ПользовательскийМакетУдалить</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Пометить на удаление/ Снять пометку</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="УпаковкиНоменклатурыКонтекстноеМенюУдалениеПометитьСнятьРасширеннаяПодсказка" id="56"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="УпаковкиНоменклатурыКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="УпаковкиНоменклатурыРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="УпаковкиНоменклатурыСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>УпаковкиНоменклатуры</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="УпаковкиНоменклатурыСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="УпаковкиНоменклатурыСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="УпаковкиНоменклатурыСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>УпаковкиНоменклатуры</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="УпаковкиНоменклатурыСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="УпаковкиНоменклатурыСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="УпаковкиНоменклатурыУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>УпаковкиНоменклатуры</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="УпаковкиНоменклатурыУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="УпаковкиНоменклатурыУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">УпаковкиНоменклатурыВыбор</Event>
+				<Event name="BeforeAddRow">УпаковкиНоменклатурыПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">УпаковкиНоменклатурыПередУдалением</Event>
+				<Event name="ChoiceProcessing">УпаковкиНоменклатурыОбработкаВыбора</Event>
+				<Event name="BeforeRowChange">УпаковкиНоменклатурыПередНачаломИзменения</Event>
+				<Event name="OnChange">УпаковкиНоменклатурыПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<ColumnGroup name="УпаковкиНоменклатурыГруппа1" id="53">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="УпаковкиНоменклатурыГруппа1РасширеннаяПодсказка" id="54"/>
+					<ChildItems>
+						<PictureField name="УпаковкиНоменклатурыПометкаУдаления" id="42">
+							<DataPath>Объект.УпаковкиНоменклатуры.ПометкаУдаления</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Abs>ValuesPicture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="УпаковкиНоменклатурыПометкаУдаленияКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="УпаковкиНоменклатурыПометкаУдаленияРасширеннаяПодсказка" id="44"/>
+							<Events>
+								<Event name="OnChange">УпаковкиНоменклатурыПометкаУдаленияПриИзменении</Event>
+							</Events>
+						</PictureField>
+						<InputField name="УпаковкиНоменклатурыНаименование" id="17">
+							<DataPath>Объект.УпаковкиНоменклатуры.Наименование</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="УпаковкиНоменклатурыНаименованиеКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="УпаковкиНоменклатурыНаименованиеРасширеннаяПодсказка" id="19"/>
+							<Events>
+								<Event name="OnChange">УпаковкиНоменклатурыНаименованиеПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="УпаковкиНоменклатурыНоменклатура" id="23">
+					<DataPath>Объект.УпаковкиНоменклатуры.Номенклатура</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="УпаковкиНоменклатурыНоменклатураКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="УпаковкиНоменклатурыНоменклатураРасширеннаяПодсказка" id="25"/>
+					<Events>
+						<Event name="OnChange">УпаковкиНоменклатурыНоменклатураПриИзменении</Event>
+						<Event name="ChoiceProcessing">УпаковкиНоменклатурыНоменклатураОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="УпаковкиНоменклатурыЕдиницаИзмеренияНоменклатуры" id="26">
+					<DataPath>Объект.УпаковкиНоменклатуры.ЕдиницаИзмеренияНоменклатуры</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="УпаковкиНоменклатурыЕдиницаИзмеренияНоменклатурыКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="УпаковкиНоменклатурыЕдиницаИзмеренияНоменклатурыРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="УпаковкиНоменклатурыКоэффициент" id="20">
+					<DataPath>Объект.УпаковкиНоменклатуры.Коэффициент</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>true</ChoiceButton>
+					<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+					<ClearButton>false</ClearButton>
+					<SpinButton>false</SpinButton>
+					<OpenButton>false</OpenButton>
+					<CreateButton>false</CreateButton>
+					<ContextMenu name="УпаковкиНоменклатурыКоэффициентКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="УпаковкиНоменклатурыКоэффициентРасширеннаяПодсказка" id="22"/>
+					<Events>
+						<Event name="OnChange">УпаковкиНоменклатурыКоэффициентПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="УпаковкиНоменклатурыКод" id="14">
+					<DataPath>Объект.УпаковкиНоменклатуры.Код</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=6; ЧВН=; ЧГ=0</v8:content>
+						</v8:item>
+					</Format>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=6; ЧВН=; ЧГ=0</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="УпаковкиНоменклатурыКодКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="УпаковкиНоменклатурыКодРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<LabelField name="УпаковкиНоменклатурыУникальныйИдентификатор" id="39">
+					<DataPath>Объект.УпаковкиНоменклатуры.УникальныйИдентификатор</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="УпаковкиНоменклатурыУникальныйИдентификаторКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="УпаковкиНоменклатурыУникальныйИдентификаторРасширеннаяПодсказка" id="41"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:ExternalDataProcessorObject.апОбменДанными</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Columns>
+				<AdditionalColumns table="Объект.УпаковкиНоменклатуры">
+					<Column name="Код" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Код</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>6</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="Наименование" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Наименование</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>15</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="Коэффициент" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Коэффициент</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>6</v8:Digits>
+								<v8:FractionDigits>3</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+					<Column name="Номенклатура" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Номенклатура</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ЕдиницаИзмеренияНоменклатуры" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Базовая единица измерения</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+						</Type>
+					</Column>
+					<Column name="УникальныйИдентификатор" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Уникальный идентификатор</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>v8:UUID</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ПометкаУдаления" id="7">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Пометка удаления</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>1</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="МодифицированностьФормы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модифицированность формы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="стррПараметры" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стрр параметры</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>УпаковкиНоменклатурыНоменклатура</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УпаковкиНоменклатурыНаименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УпаковкиНоменклатурыЕдиницаИзмеренияНоменклатуры</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УпаковкиНоменклатурыКоэффициент</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УпаковкиНоменклатурыКод</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УпаковкиНоменклатурыУникальныйИдентификатор</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.УпаковкиНоменклатуры.ПометкаУдаления</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">auto</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:DarkGray</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" faceName="Arial" height="10" bold="false" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="СохранитьСправочник" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить справочник</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьСправочник</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьЭлемент" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить элемент</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьЭлемент</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УдалитьПомеченные" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить помеченные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить помеченные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьПомеченные</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УдалениеПометитьСнять" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удаление пометить снять</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пометить на удаление/ Снять пометку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалениеПометитьСнять</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УдалитьИзХранилища" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить из хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить из хранилища</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьИзХранилища</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Выбрать" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выбрать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>
